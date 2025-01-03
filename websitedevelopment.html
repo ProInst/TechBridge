@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>TechBridge Technologies - Website Development</title>
+  <meta charset='utf-8' />
+  <meta content='width=device-width, initial-scale=1' name='viewport' />
+  <meta content='' name='description' />
+  <meta content='' name='keywords' />
+  <link rel="icon" type="image/x-icon" href="./assets/Images/Logo/TechBridgeIcon.png">
+  <!-- Bootstrap Links -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <!-- Google Font Links -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+    rel="stylesheet" />
+
+  <style>
+    /* Define root variables */
+    :root {
+      /* Color's In RGB */
+      /* Primary Color's */
+      --primary-color: 0, 0, 255;
+      /* Blue */
+      --second-primary-color: 255, 255, 255;
+      /* White */
+      --third-primary-color: 0, 0, 0;
+      /* Black */
+
+      /* Background Color's */
+      --primary-bgcolor: var(--primary-color);
+      --second-primary-bgcolor: var(--second-primary-color);
+      --third-primary-bgcolor: var(--third-primary-color);
+
+      /* Foreground Color's */
+      --primary-fgcolor: var(--primary-color);
+      --second-primary-fgcolor: var(--second-primary-color);
+      --third-primary-fgcolor: var(--third-primary-color);
+
+      /* Button Color's */
+      --primary-btncolor: var(--primary-color);
+
+      /* Font's */
+      /* Primary Font */
+      --font-family: "Poppins", serif;
+    }
+
+    /* Basic Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: var(--font-family);
+    }
+
+    /* Announcement Bar, Navbar & Cover (Start) */
+
+    /* Announcement Bar */
+    .announcement-bar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      /* Ensure it stays above the navbar */
+      background-color: #ffd700;
+      /* Gold background */
+      color: rgba(var(--third-primary-fgcolor), 0.75);
+      text-align: center;
+      padding: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .announcement-bar a {
+      color: rgba(var(--third-primary-fgcolor), 1);
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    /* Custom CSS for navbar and hero section */
+    .navbar-custom {
+      background-color: rgba(var(--primary-bgcolor), 0) !important;
+      width: 100%;
+      top: 40px;
+      /* Space below the announcement bar */
+      z-index: 10;
+      text-align: center;
+    }
+
+    .navbar-scrolled {
+      color: rgba(var(--second-primary-fgcolor), 1) !important;
+      background-color: rgba(var(--third-primary-bgcolor), 0.5) !important;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(5px);
+    }
+
+    .nav-link {
+      color: rgba(var(--second-primary-fgcolor), 1) !important;
+      /* White text for menu items */
+    }
+
+    .nav-link:visited {
+      color: rgba(var(--second-primary-fgcolor), 0.8) !important;
+    }
+
+    .nav-link:hover {
+      color: rgba(var(--second-primary-fgcolor), 0.8) !important;
+    }
+
+    .nav-link:active {
+      color: rgba(var(--second-primary-fgcolor), 0.8) !important;
+    }
+
+    .navbar-custom .navbar-brand {
+      color: rgba(var(--second-primary-fgcolor), 1);
+      /* White text for the logo */
+    }
+
+    .dropdown-menu {
+      background-color: rgba(var(--third-primary-bgcolor), 0.5) !important;
+      backdrop-filter: blur(5px);
+    }
+
+    .dropdown-menu .dropdown-header {
+      color: rgba(var(--second-primary-fgcolor), 0.5);
+    }
+
+    .dropdown-menu .dropdown-item {
+      color: rgba(var(--second-primary-fgcolor), 1);
+    }
+
+    .dropdown-item:hover {
+      color: rgba(var(--second-primary-fgcolor), 1) !important;
+      background-color: rgba(var(--second-primary-bgcolor), 0.3);
+    }
+
+    .dropdown-divider {
+      border-color: rgba(var(--second-primary-bgcolor), 0.3) !important;
+    }
+
+    .hero {
+      position: relative;
+      height: 80vh;
+      /* Full height for hero section */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: rgba(var(--second-primary-fgcolor), 1);
+      overflow: hidden;
+    }
+
+    .hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* Ensures the video covers the entire area */
+      z-index: 1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* background: rgba(var(--primary-bgcolor), 0.5); */
+      /* Blue transparent overlay */
+      background: linear-gradient(to top left, rgba(var(--primary-bgcolor), 0.7), rgba(var(--second-primary-bgcolor), 0.3));
+      /* Gradient Blue & White transparent overlay */
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+      /* Make text readable over video */
+    }
+
+    @media(width<=367px) {
+
+      /* Announcement Bar */
+      .announcement-bar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        /* Ensure it stays above the navbar */
+        background-color: #ffd700;
+        /* Gold background */
+        color: rgba(var(--third-primary-fgcolor), 0.75);
+        text-align: center;
+        padding: 10px;
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      /* Custom CSS for navbar and hero section */
+      .navbar-custom {
+        background-color: rgba(var(--primary-bgcolor), 0) !important;
+        width: 100%;
+        top: 56px;
+        /* Space below the announcement bar */
+        z-index: 10;
+        text-align: center;
+      }
+
+      .navbar-scrolled {
+        color: rgba(var(--second-primary-fgcolor), 1) !important;
+        background-color: rgba(var(--third-primary-bgcolor), 0.5) !important;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+      }
+
+      .nav-link {
+        background-color: rgba(var(--third-primary-bgcolor), 0.5);
+        max-width: 100vw !important;
+        /* Set max width to 50% of the viewport */
+        border-radius: 30px;
+        backdrop-filter: blur(5px);
+        margin-left: auto;
+        /* Align menu to the right */
+        border-bottom: 0.5px solid rgba(var(--second-primary-bgcolor), 0.2);
+      }
+
+      .nav-link:hover {
+        color: rgba(var(--second-primary-fgcolor), 1) !important;
+        background-color: rgba(var(--second-primary-bgcolor), 0.3);
+      }
+
+      .dropdown-menu {
+        background-color: rgba(var(--third-primary-bgcolor), 0.5) !important;
+        backdrop-filter: blur(5px);
+        max-width: 90% !important;
+        transform: translateX(5.5%);
+      }
+    }
+
+    @media (width>=368px) and (width<=399px) {
+
+      /* Announcement Bar */
+      .announcement-bar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        /* Ensure it stays above the navbar */
+        background-color: #ffd700;
+        /* Gold background */
+        color: rgba(var(--third-primary-fgcolor), 0.75);
+        text-align: center;
+        padding: 10px;
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      /* Custom CSS for navbar and hero section */
+      .navbar-custom {
+        background-color: rgba(var(--primary-bgcolor), 0) !important;
+        width: 100%;
+        top: 38px;
+        /* Space below the announcement bar */
+        z-index: 10;
+        text-align: center;
+      }
+
+      .navbar-scrolled {
+        color: rgba(var(--second-primary-fgcolor), 1) !important;
+        background-color: rgba(var(--third-primary-bgcolor), 0.5) !important;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+      }
+
+      .nav-link {
+        background-color: rgba(var(--third-primary-bgcolor), 0.5);
+        max-width: 100vw !important;
+        /* Set max width to 50% of the viewport */
+        border-radius: 30px;
+        backdrop-filter: blur(5px);
+        margin-left: auto;
+        /* Align menu to the right */
+        border-bottom: 0.5px solid rgba(var(--second-primary-bgcolor), 0.2);
+      }
+
+      .nav-link:hover {
+        color: rgba(var(--second-primary-fgcolor), 1) !important;
+        background-color: rgba(var(--second-primary-bgcolor), 0.3);
+      }
+
+      .dropdown-menu {
+        background-color: rgba(var(--third-primary-bgcolor), 0.5) !important;
+        backdrop-filter: blur(5px);
+        max-width: 90% !important;
+        transform: translateX(6%);
+      }
+    }
+
+    @media (width>=400px) and (width<=500px) {
+
+      /* Announcement Bar */
+      .announcement-bar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        /* Ensure it stays above the navbar */
+        background-color: #ffd700;
+        /* Gold background */
+        color: rgba(var(--third-primary-fgcolor), 0.75);
+        text-align: center;
+        padding: 10px;
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      /* Custom CSS for navbar and hero section */
+      .navbar-custom {
+        background-color: rgba(var(--primary-bgcolor), 0) !important;
+        width: 100%;
+        top: 38px;
+        /* Space below the announcement bar */
+        z-index: 10;
+        text-align: center;
+      }
+
+      .navbar-scrolled {
+        color: rgba(var(--second-primary-fgcolor), 1) !important;
+        background-color: rgba(var(--third-primary-bgcolor), 0.5) !important;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+      }
+
+      .nav-link {
+        background-color: rgba(var(--third-primary-bgcolor), 0.5);
+        max-width: 100vw !important;
+        /* Set max width to 50% of the viewport */
+        border-radius: 30px;
+        backdrop-filter: blur(5px);
+        margin-left: auto;
+        /* Align menu to the right */
+        border-bottom: 0.5px solid rgba(var(--second-primary-bgcolor), 0.2);
+      }
+
+      .nav-link:hover {
+        color: rgba(var(--second-primary-fgcolor), 1) !important;
+        background-color: rgba(var(--second-primary-bgcolor), 0.3);
+      }
+
+      .dropdown-menu {
+        background-color: rgba(var(--third-primary-bgcolor), 0.5) !important;
+        backdrop-filter: blur(5px);
+        max-width: 90% !important;
+        transform: translateX(6%);
+      }
+    }
+
+    @media (width>=501px) and (width<=991px) {
+
+      /* Custom CSS for navbar and hero section */
+      .navbar-custom {
+        background-color: rgba(var(--primary-bgcolor), 0) !important;
+        width: 100%;
+        top: 44px;
+        /* Space below the announcement bar */
+        z-index: 10;
+        text-align: center;
+      }
+
+      .navbar-scrolled {
+        color: rgba(var(--second-primary-fgcolor), 1) !important;
+        background-color: rgba(var(--third-primary-bgcolor), 0.5) !important;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+      }
+
+      .nav-link {
+        background-color: rgba(var(--third-primary-bgcolor), 0.5);
+        max-width: 50vw !important;
+        /* Set max width to 50% of the viewport */
+        border-radius: 30px;
+        backdrop-filter: blur(5px);
+        margin-left: auto;
+        /* Align menu to the right */
+        border-bottom: 0.5px solid rgba(var(--second-primary-bgcolor), 0.2);
+      }
+
+      .nav-link:hover {
+        color: rgba(var(--second-primary-fgcolor), 1) !important;
+        background-color: rgba(var(--second-primary-bgcolor), 0.3);
+      }
+
+      .dropdown-menu {
+        background-color: rgba(var(--third-primary-bgcolor), 0.5) !important;
+        backdrop-filter: blur(5px);
+        max-width: 45% !important;
+        transform: translateX(115%);
+      }
+    }
+
+    /* Announcement Bar, Navbar & Cover (End) */
+
+    /* Footer (Start) */
+
+    footer {
+      background-color: rgba(var(--primary-bgcolor), 0.8);
+      padding: 20px 0;
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      color: rgba(var(--second-primary-fgcolor), 1);
+      /* font-size: 0.9rem; */
+
+      & {
+        a {
+          text-decoration: none;
+          color: rgba(var(--second-primary-fgcolor), 1);
+        }
+
+        & {
+          a:hover {
+            color: rgba(var(--second-primary-fgcolor), 0.8);
+          }
+        }
+      }
+    }
+
+    /* Footer (End) */
+
+    /* Scroll to Top Button (Start) */
+
+    .scroll-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      display: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgb(var(--primary-btncolor), 1);
+      color: rgba(var(--second-primary-fgcolor), 1);
+      justify-content: center;
+      align-items: center;
+      font-size: 15px;
+      cursor: pointer;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .scroll-to-top.show {
+      display: flex;
+    }
+
+    /* Scroll to Top Button (End) */
+  </style>
+</head>
+
+<body>
+  <!-- Announcement Bar, Navbar & Cover (Start) -->
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    📢 Your Partner in Digital Growth! - Let’s Begin! <a href="./contact.html">Enquiry Now</a>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-custom fixed-top navbar-scrolled">
+    <div class="container-fluid">
+      <!-- Logo -->
+      <a class="navbar-brand" href="https://www.techbridge.site/">
+        <img src="./assets/Images/Logo/TechBridgeLogo.png" alt="Logo" width="40" height="40"
+          class="d-inline-block align-text-middle" />
+      </a>
+
+      <!-- Toggler for mobile view -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-grid text-white border-0"></i>
+      </button>
+
+      <!-- Menu items -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Services
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <h6 class="dropdown-header">Business Digital Services</h6>
+              </li>
+              <li><a class="dropdown-item" href="#">Website Development</a></li>
+              <li><a class="dropdown-item" href="#">Digital Marketing</a></li>
+              <li><a class="dropdown-item" href="#">Graphic Designing</a></li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li>
+                <h6 class="dropdown-header">IT Training</h6>
+              </li>
+              <li><a class="dropdown-item" href="#">Explore Courses</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <video autoplay="autoplay" muted="muted" loop="loop">
+      <source src="https://cdn.pixabay.com/video/2021/07/20/82170-577893740_large.mp4" type="video/mp4">
+      </source>
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>WEBSITE DEVELOPMENT</h1>
+    </div>
+  </div>
+
+  <!-- Announcement Bar, Navbar & Cover (End) -->
+
+  <!-- Pragraph Start -->
+
+  <div align="justify">
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est dignissimos consectetur sit fugit? Fugit quia,
+      repellat aspernatur recusandae, corrupti praesentium, explicabo voluptates quae labore tenetur obcaecati
+      accusantium distinctio. Quia debitis cum quisquam nemo inventore repellat illo neque aut cumque facilis minus sunt
+      magnam reprehenderit vel natus optio dicta molestias, cupiditate provident porro! Modi cupiditate repellendus
+      mollitia illo alias, adipisci molestias cumque id voluptatibus quas, ipsum, dolore magni praesentium suscipit
+      consectetur aut iusto sunt minima odio quisquam? Laudantium magnam iste eaque ea quis officiis voluptatem aperiam
+      quae laboriosam, deserunt earum explicabo recusandae rem sed et voluptatum fugiat consectetur natus, quisquam
+      sapiente voluptate pariatur. Omnis rerum voluptatum repellat? Omnis, enim nesciunt cum ea provident adipisci error
+      optio cupiditate unde explicabo quo corrupti molestiae. Quas odit hic ad eos, ratione officiis eveniet consectetur
+      distinctio! Illum dolorum quisquam, voluptas necessitatibus facilis laudantium consequuntur aperiam soluta eos,
+      optio iusto cupiditate aliquid aspernatur corporis saepe eaque exercitationem ullam fugit maxime amet illo
+      impedit, sapiente culpa. Repellendus numquam magnam itaque porro. Corporis, fugit. Expedita eligendi doloremque
+      nihil id delectus ratione adipisci, iure tenetur beatae est fugit natus ducimus temporibus optio laboriosam
+      blanditiis excepturi mollitia voluptatibus deleniti placeat cumque aut odio. Iusto error saepe magni? In ipsa
+      atque repellendus possimus exercitationem quo molestias ipsum nobis natus reiciendis itaque culpa libero
+      consequuntur magni unde, obcaecati ea impedit maxime perferendis sint asperiores assumenda, ducimus fuga non.
+      Inventore eveniet quas distinctio nesciunt voluptate excepturi nemo officiis ea repudiandae et temporibus
+      praesentium rerum possimus, quisquam tenetur eaque odit adipisci dolore ex soluta omnis error ipsam. Dicta quae
+      harum ipsum nemo a asperiores voluptas quasi suscipit possimus iste! Sequi fuga ducimus corrupti. Labore, minima
+      vel pariatur in expedita cumque! Suscipit eligendi molestias earum, dolore quo laudantium, consectetur, inventore
+      modi sequi rem porro vitae vel aspernatur. Eaque officiis dolorum quasi quibusdam labore a. Eligendi, alias!
+      Adipisci nihil ratione doloremque fugiat, quibusdam quos optio natus sunt? Quod illo, tempora error sed modi
+      incidunt quasi hic autem voluptatem in quis veritatis quae unde consectetur ratione? Ducimus debitis culpa autem
+      non ea quaerat possimus voluptate, ipsum aspernatur excepturi repellendus, expedita fuga ipsam aliquam iste modi,
+      magni architecto veritatis quam recusandae rerum quisquam minima provident. Dolore quibusdam quae possimus veniam
+      iste? Consequatur tempore reprehenderit culpa nostrum ad sed blanditiis sit esse? Voluptas voluptate libero ea
+      officiis vero nulla, quis sint explicabo fugit repellat ab nam aperiam laboriosam voluptatum eius odit adipisci at
+      perspiciatis culpa saepe natus et fugiat. Esse tenetur quasi eligendi consequatur accusantium, est voluptate quam
+      dicta aliquam, similique recusandae corrupti quibusdam, quaerat modi. Incidunt veniam ipsum explicabo, esse dolore
+      saepe ut cupiditate culpa odit ducimus corrupti enim! Nostrum fuga ad quaerat atque non harum itaque aliquid nam
+      nesciunt reiciendis, ullam, consectetur incidunt eaque dignissimos accusantium odio? Quae natus similique
+      voluptatum mollitia exercitationem illo saepe sunt adipisci, earum officiis quia nobis at fugiat omnis est quos
+      neque delectus provident debitis cupiditate? Beatae voluptate obcaecati libero. Ipsum eveniet magnam nulla unde
+      delectus est nostrum. Quos eaque mollitia at, consequuntur delectus eligendi quod, voluptates recusandae saepe
+      odio aperiam obcaecati labore perferendis esse beatae fugiat expedita doloribus. Facilis illo beatae asperiores
+      aliquam error in recusandae alias excepturi perspiciatis, unde inventore architecto cumque itaque laborum corrupti
+      minus eum harum temporibus aspernatur cupiditate labore? Consequuntur dicta natus velit quasi eligendi sunt,
+      maiores rerum quaerat in optio quis consectetur magnam deleniti officiis saepe maxime veritatis odio perspiciatis
+      exercitationem placeat quod vel voluptate! Provident reiciendis nihil pariatur fugit nemo reprehenderit recusandae
+      non deleniti nobis cupiditate, sequi, perferendis repellendus rerum beatae autem cumque. Natus assumenda
+      temporibus rem laudantium dolor laborum magni officia mollitia quam provident aperiam suscipit similique, nihil
+      dignissimos fugiat numquam quaerat velit molestiae facilis laboriosam. Veniam velit quisquam aliquid magnam quidem
+      facilis doloribus ut unde harum earum facere itaque deserunt, modi quod? Ipsam mollitia officiis ullam enim odit
+      quae, nemo, doloribus earum sit accusamus, quisquam dolorum adipisci optio dolor accusantium laborum
+      necessitatibus nesciunt nihil pariatur fugit. Excepturi aspernatur commodi, iusto praesentium unde neque rerum
+      cupiditate, velit quos, magnam adipisci facilis! Corporis cum labore voluptatem repudiandae totam velit libero?
+      Repudiandae ipsam dolores rem quod ducimus nam possimus, itaque facilis et eveniet. Neque dicta, distinctio quo,
+      hic sequi qui quod inventore repellendus possimus aut dolorem ipsum dolorum sunt, quidem error nostrum! Ex, nemo
+      fugit distinctio, a quae facilis sequi libero eligendi mollitia quam voluptas! Repellat provident atque voluptas
+      ad cumque necessitatibus voluptatibus voluptates recusandae aut, voluptatem minima consectetur veritatis fugit
+      omnis quae quis natus dolorum. Alias earum reiciendis maiores iste quae, repellendus neque nulla enim corrupti
+      dicta debitis! Dolorum, commodi! Quae ut minus blanditiis deleniti eos eveniet, inventore aut iure rerum dolorum
+      non debitis perferendis, minima veritatis iste quod modi magnam? Magnam necessitatibus, veniam quo a vero incidunt
+      ut natus placeat nam nobis sit at sapiente eaque consequuntur vel tempore, fugit dolorem harum commodi! Tenetur,
+      eveniet ratione. Quis vel error, dolorum voluptatum ipsa, facere tenetur odit possimus temporibus consectetur
+      saepe veniam architecto sunt perspiciatis quas consequatur. Blanditiis velit eligendi dignissimos ipsum quae
+      cumque assumenda amet dicta accusantium quo itaque repellat ratione explicabo doloremque dolorem optio, nisi et
+      reiciendis. Totam repellat, soluta, quas, fugiat natus facere inventore molestias expedita repudiandae nostrum
+      autem unde! Iure voluptate enim id modi nostrum quo quod alias consequuntur? Quibusdam, saepe corporis sunt
+      aliquid ipsam nesciunt, repellendus accusamus quasi possimus eligendi alias. Minima voluptatibus voluptatem
+      reiciendis cupiditate optio, ducimus fugit porro ut molestiae velit expedita tempora aspernatur doloremque a
+      praesentium magnam sapiente eos numquam iste laboriosam provident placeat voluptatum, et explicabo? Rem blanditiis
+      fuga illum iure accusamus temporibus expedita pariatur voluptatibus, soluta similique suscipit eos minus, quisquam
+      totam impedit illo deleniti porro mollitia ullam, commodi culpa? Esse accusamus non earum neque dolorum voluptatem
+      ullam tempore corporis! Aliquid ullam, molestias quis et, unde alias totam inventore asperiores fugit obcaecati,
+      non nesciunt! Ratione, exercitationem aliquam minima corrupti necessitatibus incidunt molestias molestiae, et aut
+      qui itaque consequatur culpa perferendis! Sint, fugiat. Esse magni aliquam ratione sed ullam vero consequuntur
+      voluptatibus, enim earum assumenda modi beatae ad sint recusandae iure voluptate numquam deserunt fugiat tempora
+      omnis. Accusantium, qui. Incidunt ipsam deserunt quia dolorem molestiae dolores assumenda sapiente, quod cumque
+      dignissimos, odit quae aspernatur esse vero ea excepturi possimus repellat fugiat animi quaerat! Eos tenetur
+      recusandae excepturi voluptas inventore? At odit aliquid eaque eius eveniet molestias sapiente quam voluptatem
+      quod officiis, deserunt laboriosam, rem culpa iure natus tempora id, necessitatibus facilis voluptatibus neque.
+      Laudantium ipsam nihil facilis voluptatem debitis voluptate impedit totam, incidunt, aperiam sunt suscipit quam
+      iusto eos odio et sed dolorem dolorum rerum repellendus harum illo adipisci. Nisi, laboriosam. Unde nulla
+      consectetur quam quae nihil fugiat laudantium libero quas natus voluptas voluptatem omnis, tempora illo odio esse
+      at animi impedit possimus amet ipsam iure voluptatum, error ut. Officia mollitia ex est totam vel iusto enim
+      cupiditate nisi quos perferendis harum adipisci, aliquid deserunt ratione saepe aliquam numquam natus architecto
+      pariatur tempora debitis. In saepe officiis cupiditate ea corporis vel, quia nesciunt aspernatur, nulla magnam
+      voluptates dolores vero laboriosam iste eveniet quisquam sapiente eos! Placeat officia itaque dolore aperiam sit,
+      sequi repudiandae impedit dolorem eum suscipit quis molestias aspernatur sunt, odio, omnis eligendi. Sapiente
+      saepe deleniti nostrum atque assumenda maxime praesentium expedita ad ipsam quibusdam, voluptate corporis. Minima,
+      illum reprehenderit cum porro in obcaecati ut ipsum iusto optio pariatur magni debitis quo excepturi laudantium
+      velit ipsa earum animi quisquam, et, tenetur maxime minus fugit mollitia sapiente! Soluta, amet quae eos officia
+      laboriosam voluptatem eum ipsum assumenda voluptas labore expedita unde quod pariatur. Totam eligendi quam ratione
+      dolorem officiis. Voluptatibus quisquam tempora tenetur pariatur vel! Similique excepturi deserunt labore? Quaerat
+      explicabo natus voluptate nam possimus! Mollitia earum maiores, magni numquam est vitae! Temporibus, ut, libero
+      nemo, perferendis commodi odio quasi adipisci a repudiandae aut nobis ea dolore non nulla. Aperiam illum optio
+      enim, fugiat nihil in molestiae nemo quis animi aliquam doloribus explicabo dolorum, vel a minima ullam dicta
+      voluptates adipisci distinctio aliquid iure eligendi delectus ea. Voluptate omnis labore ratione tenetur, enim sit
+      eligendi quaerat veritatis voluptatem incidunt ut laboriosam voluptatum accusantium consequuntur asperiores
+      nostrum quia cupiditate esse explicabo quod blanditiis iste. Nisi, et sapiente! Facere itaque distinctio
+      reprehenderit cumque debitis nihil maiores magnam veritatis. Praesentium delectus exercitationem pariatur suscipit
+      ipsa ab, excepturi aperiam amet, voluptate explicabo deleniti sed fuga corrupti maxime sit tempora dolorem optio
+      dolores nostrum itaque saepe a facilis ut dolor. At sit possimus ea, tenetur natus laboriosam neque magni omnis
+      alias sint voluptas, obcaecati maxime provident blanditiis sunt, laudantium harum dolores non quam. Nostrum
+      nesciunt iste at consectetur quidem unde consequuntur, sunt delectus praesentium labore dolor saepe, odio deserunt
+      vitae exercitationem, accusamus laborum quisquam similique aliquid laudantium! Dolor natus possimus aut, facere
+      perspiciatis earum ullam impedit ducimus voluptatem repellendus voluptas rem nostrum eligendi consequuntur. Totam
+      et iusto alias.</p>
+  </div>
+
+  <!-- Pragraph End -->
+
+  <!-- Footer (Start) -->
+
+  <footer class="mt-auto">
+    <div class="container">
+      <div class="row text-center text-md-start">
+        <!-- Column 1: Company Information -->
+        <div class="col-md-4 mb-3">
+          <h5 class="fw-bold">TechBridge Technologies</h5>
+          <p class="mb-1">Near Tara Degree College, 2nd Gate, Opp: Apollo Pharmacy, By Pass Road, Sangareddy,
+          </p>
+          <p class="mb-1"> Telangana 502001.</p>
+          <p class="mb-0">Mobile: <a href="tel:+919666622269">+91 9666622269</a></p>
+          <div class="mt-3">
+            <img src="./assets/Images/Logo/Trusted.png" alt="Trusted" class="img-fluid me-4" style="width: 32%;" />
+            <img src="./assets/Images/Logo/GoogleRating.png" alt="Google Rating" class="img-fluid"
+              style="width: 35%;" />
+          </div>
+        </div>
+
+        <!-- Column 2: Services -->
+        <div class="col-md-3 mb-3">
+          <h6 class="fw-bold">Services</h6>
+          <p class="mb-1 fw-bold">Digital Services:</p>
+          <ul class="list-unstyled">
+            <li><a href="#">Website Development</a></li>
+            <li><a href="#">Digital Marketing</a></li>
+            <li><a href="#">Graphic Designing</a></li>
+          </ul>
+          <p class="mb-1 fw-bold">IT Training:</p>
+          <ul class="list-unstyled">
+            <li><a href="#">Explore Courses</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Website Links -->
+        <div class="col-md-3 mb-3">
+          <h6 class="fw-bold">Website - Links</h6>
+          <ul class="list-unstyled">
+            <li><a href="https://www.techbridge.site/">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Terms And Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+
+          <h6 class="fw-bold mt-3">IT Training - Links</h6>
+          <div clas="social-links">
+            <a href="https://www.youtube.com/@techbridgeinstitute" class="me-2"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.facebook.com/TechBridgeITInstitute/" class="me-2"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/techbridgeinstitute"><i class="bi bi-instagram"></i></a>
+          </div>
+          <h6 class="fw-bold mt-3">Digital Services - Links</h6>
+          <div clas="social-links">
+            <a href="https://www.youtube.com/@techbridgeds" class="me-2"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.facebook.com/TechBridgeDS/" class="me-2"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/techbridgeds/"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+
+        <!-- Column 4: Personal Links -->
+        <div class="col-md-2 mb-3">
+          <h6 class="fw-bold">Personal - Links</h6>
+          <ul class="list-unstyled">
+            <li><a href="https://pavan.techbridge.site/"><i class="bi bi-globe"></i> Website</a></li>
+            <li><a href="https://www.facebook.com/pavansangareddypeta"><i class="bi bi-facebook"></i> Facebook</a></li>
+            <li><a href="https://www.instagram.com/pavansangareddypeta/"><i class="bi bi-instagram"></i> Instagram</a>
+            </li>
+            <li><a href="https://wa.me/+919666622269"><i class="bi bi-whatsapp"></i> WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Footer Bottom Bar -->
+      <div class="text-center py-3 border-top">
+        <p class="mb-0">Designed &amp; Developed by <a href="https://www.techbridge.site/" class="fw-bold">TechBridge
+            Technologies</a> | All
+          Rights Reserved &copy; 2016 -
+          <script>document.write(new Date().getFullYear())</script>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Footer (End) -->
+
+  <!-- Scroll to Top Button (Start) -->
+
+  <div id="scrollToTop" class="scroll-to-top">
+    <i class="bi bi-chevron-up"></i>
+    <!-- <i class="bi bi-arrow-up"></i> -->
+  </div>
+
+  <!-- Scroll to Top Button (End) -->
+
+  <!-- Javascript -->
+
+  <!-- Announcement Bar, Navbar & Cover (Start) -->
+
+  <!-- Navbar Scroll Functionality -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const navE = document.querySelector('.navbar');
+
+      // Function to update navbar transparency
+      const updateNavbarState = () => {
+        if (window.scrollY >= 56) {
+          navE.classList.add('navbar-scrolled');
+        } else {
+          navE.classList.remove('navbar-scrolled');
+        }
+      };
+
+      // Run immediately on page load
+      updateNavbarState();
+
+      // Update on scroll
+      window.addEventListener('scroll', updateNavbarState);
+    });
+  </script>
+
+  <!-- Toggle Button Open & Close Automatically -->
+  <script>
+    function toggleMenu(toggler) {
+      const nav = document.getElementById('navbarNav');
+      const isExpanded = toggler.getAttribute('aria-expanded') === 'true';
+      toggler.setAttribute('aria-expanded', !isExpanded);
+      nav.classList.toggle('show');
+    }
+
+    // Close the toggler when clicking outside the menu
+    document.addEventListener('click', (e) => {
+      const nav = document.getElementById('navbarNav');
+      const toggler = document.querySelector('.navbar-toggler');
+
+      if (
+        !nav.contains(e.target) && // Click is outside the navbar
+        !toggler.contains(e.target) && // Click is outside the toggler button
+        nav.classList.contains('show') // Menu is open
+      ) {
+        toggler.setAttribute('aria-expanded', false);
+        nav.classList.remove('show');
+      }
+    });
+  </script>
+
+  <!-- Announcement Bar, Navbar & Cover (End) -->
+
+  <!-- Scroll to Top Button (Start) -->
+  <script>
+    // Scroll to Top Functionality
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+
+    // Show/Hide Button on Scroll
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        scrollToTopBtn.classList.add('show');
+      } else {
+        scrollToTopBtn.classList.remove('show');
+      }
+    });
+
+    // Smooth Scroll to Top on Click
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+  <!-- Scroll to Top Button (End) -->
+
+  <!-- Right Click  Option Disabled (Start) -->
+
+  <script language=javascript>
+
+    var message = "Can't Access";
+
+    function clickIE4() {
+      if (event.button == 2) {
+        alert(message);
+        return false;
+      }
+    }
+
+    function clickNS4(e) {
+      if (document.layers || document.getElementById && !document.all) {
+        if (e.which == 2 || e.which == 3) {
+          alert(message);
+          return false;
+        }
+      }
+    }
+
+    if (document.layers) {
+      document.captureEvents(Event.MOUSEDOWN);
+      document.onmousedown = clickNS4;
+    }
+    else if (document.all && !document.getElementById) {
+      document.onmousedown = clickIE4;
+    }
+
+    document.oncontextmenu = new Function("alert(message);return false")
+  </script>
+
+  <!-- Right Click  Option Disabled (End) -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
