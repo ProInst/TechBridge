@@ -478,6 +478,25 @@
 
     /* Our Development Process (End) */
 
+    /* FAQ (Start) */
+
+    #faq {
+
+      h2 {
+        color: rgba(var(--primary-fgcolor), 0.8);
+        font-size: 2rem;
+        font-weight: 600;
+      }
+
+      .accordion-header>.accordion-button {
+        color: rgba(var(--third-primary-fgcolor), 0.8);
+        font-weight: 600;
+      }
+
+    }
+
+    /* FAQ (End) */
+
     /* Footer (Start) */
 
     footer {
@@ -688,31 +707,120 @@
     <div class="container">
       <h2 class="section-title text-center">Our Development Process</h2>
       <div class="row text-center mt-4">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <div class="process-step">1</div>
           <h5 class="mt-3">Requirement Analysis</h5>
           <p>Understanding your business goals and needs.</p>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
           <div class="process-step">2</div>
-          <h5 class="mt-3">Design</h5>
+          <h5 class="mt-3">Wireframing & Design</h5>
           <p>Creating intuitive designs for a seamless user experience.</p>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
           <div class="process-step">3</div>
           <h5 class="mt-3">Development</h5>
           <p>Building robust, scalable, and efficient solutions.</p>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
           <div class="process-step">4</div>
-          <h5 class="mt-3">Launch & Support</h5>
-          <p>Ensuring smooth deployment and ongoing maintenance.</p>
+          <h5 class="mt-3">Testing & Revisions</h5>
+          <p> Evaluating, refining, and improving a product.</p>
+        </div>
+        <div class="col-md-2">
+          <div class="process-step">5</div>
+          <h5 class="mt-3">Launch</h5>
+          <p>Ensuring the smooth and efficient deployment process.</p>
+        </div>
+        <div class="col-md-2">
+          <div class="process-step">6</div>
+          <h5 class="mt-3">Support</h5>
+          <p>Providing ongoing maintenance and consistent support for optimal performance.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Our Development Process (Start) -->
+  <!-- Our Development Process (End) -->
+
+  <!-- FAQ (Start) -->
+
+  <section id="faq" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faq1">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1"
+              aria-expanded="true" aria-controls="faqCollapse1">
+              What are the payment terms?
+            </button>
+          </h2>
+          <div id="faqCollapse1" class="accordion-collapse collapse show" aria-labelledby="faq1">
+            <div class="accordion-body">
+              Our payment terms are 80% upfront to be sent before starting the work and remaining 20% on the completion
+              of the project before making website live.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faq2">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+              How long does website development take?
+            </button>
+          </h2>
+          <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faq2">
+            <div class="accordion-body">
+              The timeline depends on the complexity and requirements of the project. Typically, it takes 4-8 weeks,
+              sometimes more.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faq3">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+              Do you offer post-launch support?
+            </button>
+          </h2>
+          <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faq3">
+            <div class="accordion-body">
+              Yes, we provide maintenance and support services after the website is live.<sup>*</sup>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faq4">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4">
+              Can I update my website myself?
+            </button>
+          </h2>
+          <div id="faqCollapse4" class="accordion-collapse collapse" aria-labelledby="faq4">
+            <div class="accordion-body">
+              Absolutely! We offer CMS-based websites that allow you to manage content easily.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="faq5">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#faqCollapse5" aria-expanded="false" aria-controls="faqCollapse5">
+              What do I need to provide to get started?
+            </button>
+          </h2>
+          <div id="faqCollapse5" class="accordion-collapse collapse" aria-labelledby="faq5">
+            <div class="accordion-body">
+              We need the Logo, Complete Brand Information and Product details to get Started.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ (End) -->
 
   <!-- Footer (Start) -->
 
